@@ -1,3 +1,4 @@
+// @ts-ignore
 import $ from 'jquery';
 import './../styles/Tape.css';
 import * as React from 'react';
@@ -41,7 +42,7 @@ const Tape: React.FC = () => {
                 $(".tape-colorspot").css("background-color", `${localStorage.getItem("colorSpot")}`);
             }
 
-            $(".colorwheel-segment").on("mouseenter", (e) => {
+            $(".colorwheel-segment").on("mouseenter", (e : any) => {
                 const target = e.target as HTMLElement;
                 $(target).css({
                     height: "25px",
@@ -52,7 +53,7 @@ const Tape: React.FC = () => {
                     "background-color",
                     `${$(target).css("background-color")}`
                 );
-            }).on("mouseleave", (e) => {
+            }).on("mouseleave", (e : any) => {
                 const target = e.target as HTMLElement;
                 $(target).css({
                     height: "12.5px",
@@ -60,7 +61,7 @@ const Tape: React.FC = () => {
                 });
 
                 $(".tape-colorspot").css("background-color", colorSpotTempRef.current);
-            }).on("click", (e) => {
+            }).on("click", (e : any) => {
                 const target = e.target as HTMLElement;
                 colorSpotTempRef.current = $(target).css("background-color") || "#E38157";
                 localStorage.setItem("colorSpot", colorSpotTempRef.current);
@@ -104,27 +105,27 @@ const Tape: React.FC = () => {
                         <rect x="51" width="706" height="5" fill="black" />
                         <rect x="752" y="363" width="363" height="5" transform="rotate(-90 752 363)" fill="black" />
                     </svg>
-                    <p className="tape-title">FEATURING</p>
-                    <p className="tape-name">
+                    <p className="tape-title textable">FEATURING</p>
+                    <p className="tape-name textable">
                         JENS VAN
                         <br />
                         &nbsp;&nbsp;&nbsp;&nbsp;DER SLOOT
                     </p>
-                    <p className="tape-whoisthat">Who's that?</p>
-                    <p className="tape-description">DESIGNER AND DEVELOPER BASED IN LISSE, NETHERLANDS</p>
-                    <p className="tape-age">17.09.05</p>
+                    <p className="tape-whoisthat textable">Who's that?</p>
+                    <p className="tape-description textable">DESIGNER AND DEVELOPER BASED IN LISSE, NETHERLANDS</p>
+                    <p className="tape-age textable">17.09.05</p>
                     <div className="tape-colorwheel">
                         {["#360000", "#6B1111", "#96411C", "#C0633B", "#E38157", "#E3A357", "#F0BE74", "#8DC3DA", "#94ABB5", "#293C44"].map((color, index) => (
                             <div
                                 key={index}
-                                className="colorwheel-segment hoverable"
+                                className="colorwheel-segment hoverable clickable"
                                 style={{ backgroundColor: color }}
                             ></div>
                         ))}
                     </div>
                     <div className="tape-colorspot"></div>
                     <div className="tape-hashtag">
-                        <p className="hashtag-text glitch" data-text="#MAKINGDREAMSCOMETRUE">
+                        <p className="hashtag-text glitch textable" data-text="#MAKINGDREAMSCOMETRUE">
                             #MAKINGDREAMSCOMETRUE
                         </p>
                     </div>

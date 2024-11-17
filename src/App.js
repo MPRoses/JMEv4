@@ -1,6 +1,7 @@
 import './App.css';
 import Background from './components/Background.tsx';
-import Tape from './components/Tape.tsx'
+import Tape from './components/Tape.tsx';
+import Cursor from './components/Cursor.tsx';
 import $ from 'jquery';
 
 function App() {
@@ -16,7 +17,6 @@ function App() {
         $ex1Layer.replaceWith($ex1Clone);
         $ex2Layer.replaceWith($ex2Clone);
 
-        // Rest of your code (without event listeners)
         let constrain = 50;
         let isEnabled = true;
         let lastKnownPos = [0, 0];
@@ -45,28 +45,27 @@ function App() {
         $("body").on("mousemove", function (e) {
             lastKnownPos = [e.clientX, e.clientY];
             transformMain(lastKnownPos);
+            $("#custom-cursor").css({
+                left: `${e.clientX}px`,
+                top: `${e.clientY}px`
+            });
         });
 
         $(document).on("scroll", function () {
             transformMain(lastKnownPos);
         });
 
+    });
 
-
-});
-
-
-  return (
-    <div className="App">
-      {/*App is divided into background items; ones which regularly appear over multiple pages and ones that are not reused and made for a part*/}
-      {/*BACKGROUND ITEMS*/}
-      <Background/>
-        {/*HERO PARTS*/}
-        <div>
-            <Tape/>
+    return (
+        <div className="App">
+            <Background/>
+            <Cursor/>
+            <div>
+                <Tape/>
+            </div>
         </div>
-    </div>
-  );
+    );
 }
 
 export default App;

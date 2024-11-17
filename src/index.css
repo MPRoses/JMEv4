@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  cursor: none;
 }
 
 * {
@@ -22,4 +23,13 @@ body, html, .App {
   height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+.cursor-item svg {
+  position: absolute !important;
+  height: 20px !important;
+  width: 20px !important;
+}
+#cursor {
+  pointer-events: none;
 }

@@ -1,5 +1,7 @@
+// @ts-ignore
 import $ from "jquery";
 import "./../styles/Background.css";
+import React from "react";
 
 function Background(): JSX.Element {
     // Define the type for the color themes array
