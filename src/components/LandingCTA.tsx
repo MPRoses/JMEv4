@@ -42,8 +42,24 @@ function LandingCTA() {
                     duration: 300,
                     delay: anime.stagger(125)
                 })
+            } else if (scrollTop < 0.2 * $(window).height() && ran > 0) {
+                anime({
+                    targets: ".textable .word, .FindOutHowCTA",
+                    opacity: [0],
+                    translateY: ["0px"],
+                    easing: "cubicBezier(.2,.81,.35,.98)",
+                    filter: ["blur(0px)"],
+                    duration: 0
+                })
+                ran = 0
             }
         };
+
+        $(".LandingCTA p").on("mouseenter", () => {
+           $(".word-shifts").css("transform", "rotate(3deg)");
+        }).on("mouseleave", () => {
+            $(".word-shifts").css("transform", "rotate(0deg)");
+        });
 
         $(".FindOutHowCTA").on("mouseenter", function (e : MouseEvent) {
             console.log(e.clientX);
@@ -100,7 +116,7 @@ function LandingCTA() {
                     that
                 </span>
                 &nbsp;
-                <span className="word">
+                <span className="word word-shifts">
                     shifts
                 </span>
                 &nbsp;
