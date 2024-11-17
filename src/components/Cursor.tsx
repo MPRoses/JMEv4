@@ -38,6 +38,10 @@ const Cursor: React.FC = () => {
                 $cursor3.hide();
                 $cursor1.show();
             }
+        }).on("mouseleave", () => {
+            $cursor2.hide();
+            $cursor3.hide();
+            $cursor1.show();
         });
 
         // Cleanup function to remove event listeners and custom cursor

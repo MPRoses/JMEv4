@@ -2,6 +2,7 @@ import './App.css';
 import Background from './components/Background.tsx';
 import Tape from './components/Tape.tsx';
 import Cursor from './components/Cursor.tsx';
+import LandingCTA from './components/LandingCTA.tsx';
 import $ from 'jquery';
 
 function App() {
@@ -89,6 +90,7 @@ function App() {
                 <Background/>
                 <Tape/>
             </div>
+            <LandingCTA/>
         </div>
     );
 }
