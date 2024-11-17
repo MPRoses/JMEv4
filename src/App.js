@@ -57,11 +57,36 @@ function App() {
 
     });
 
+    $(document).ready(function() {
+        $(window).on('scroll', function() {
+            // Get the current scroll position as a percentage of 0vh to 50vh
+            const scrollTop = $(window).scrollTop();
+            const maxScroll = $(document).height() * 0.5; // 50vh (50% of the document height)
+
+            // Calculate the ratio based on the scroll position
+            const ratio = Math.min(scrollTop / maxScroll, 1); // Clamp between 0 and 1
+
+            // Calculate the intermediate values based on the ratio
+            const borderRadius = 50 * ratio; // border-radius from 0px to 25px
+            const left = 150 * ratio; // left from 0px to 75px
+            const width = `calc(100vw - ${300 * ratio}px)`; // width from 100vw to 100vw - 150px
+
+            // Apply the calculated values to the Hero element
+            $('.Hero').css({
+                'border-radius': `${borderRadius}px`,
+                'left': `${left}px`,
+                'width': width
+            });
+        });
+    });
+
+
     return (
         <div className="App">
-            <Background/>
             <Cursor/>
-            <div>
+            <div className="Hero">
+                <div className="HeroBackground"></div>
+                <Background/>
                 <Tape/>
             </div>
         </div>

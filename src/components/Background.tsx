@@ -27,7 +27,7 @@ function Background(): JSX.Element {
         $(".in-top").css("fill", currentTheme[1]);
         $(".out-bottom").css("fill", currentTheme[2]);
         $(".in-bottom").css("fill", currentTheme[3]);
-        $(".background, body").css("background-color", currentTheme[4]);
+        $(".background, .HeroBackground").css("background-color", currentTheme[4]);
 
         currentThemeCounter++;
     }
@@ -57,7 +57,7 @@ function Background(): JSX.Element {
                     "transition",
                     "background-color 15s cubic-bezier(.83,-0.01,.36,1.02), transform 1s cubic-bezier(0.16, 0.69, 0.26, 0.88), opacity 1s ease-in-out .25s"
                 );
-                $("body").css(
+                $(".HeroBackground").css(
                     "transition",
                     "background-color 15s cubic-bezier(.83,-0.01,.36,1.02), opacity 1s ease-in-out .25s"
                 );
