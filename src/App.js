@@ -3,6 +3,7 @@ import Background from './components/Background.tsx';
 import Tape from './components/Tape.tsx';
 import Cursor from './components/Cursor.tsx';
 import LandingCTA from './components/LandingCTA.tsx';
+import Showcase from './components/Showcase.tsx';
 import $ from 'jquery';
 
 function App() {
@@ -46,7 +47,7 @@ function App() {
         $("body").on("mousemove", function (e) {
             lastKnownPos = [e.clientX, e.clientY];
             transformMain(lastKnownPos);
-            $("#custom-cursor").css({
+            $("#custom-cursor, .ShowcaseTag").css({
                 left: `${e.clientX}px`,
                 top: `${e.clientY}px`
             });
@@ -91,6 +92,7 @@ function App() {
                 <Tape/>
             </div>
             <LandingCTA/>
+            <Showcase/>
         </div>
     );
 }
