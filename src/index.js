@@ -4,8 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './styles/Fonts.css';
+import butter from './butter.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+butter.cleanup();
+butter.init({
+    wrapperDamper: .014
+});
+
+
 root.render(
   <React.StrictMode>
     <App />

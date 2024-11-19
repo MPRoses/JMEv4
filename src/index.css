@@ -20,7 +20,7 @@ code {
 
 body, html, .App {
   width: 100vw;
-  height: 400vh;
+  height: 700vh;
   overflow-x: hidden;
   overflow-y: auto;
 }

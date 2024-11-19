@@ -6,8 +6,6 @@ import ThreeImageEffect from "./ThreeIMG.tsx";
 // @ts-ignore
 import $ from 'jquery';
 // @ts-ignore
-import img from "./../img/img.png"
-// @ts-ignore
 import FWW from "./../img/FWW.png"
 // @ts-ignore
 import FURALL from "./../img/FURALL.png";
@@ -79,7 +77,7 @@ const Cursor: React.FC = () => {
             {/* ScrollAnime Wrapper */}
 
             <ScrollAnime
-                enterAt={.9 * window.innerHeight}  // Items 1 and 2 enter at 90% of viewport height
+                enterAt={1.1 * window.innerHeight}  // Items 1 and 2 enter at 90% of viewport height
                 exitAt={0.7 * window.innerHeight}   // Reverse animation when below 40% of viewport height
                 targets={".SItem-1, .title-container"} // Target Item 1 and 2
                 animationProps={{
@@ -101,7 +99,7 @@ const Cursor: React.FC = () => {
 
             <ScrollAnime
                 enterAt={.4 * window.innerHeight}  // Items 1 and 2 enter at 90% of viewport height
-                exitAt={.2 * window.innerHeight}   // Reverse animation when below 40% of viewport height
+                exitAt={0.1 * window.innerHeight}   // Reverse animation when below 40% of viewport height
                 targets={".word, .FindOutHowCTA"} // Target Item 1 and 2
                 animationProps={{
                     opacity: [0, 1],
@@ -121,8 +119,8 @@ const Cursor: React.FC = () => {
             />
 
             <ScrollAnime
-                enterAt={1.6 * window.innerHeight}  // Items 1 and 2 enter at 90% of viewport height
-                exitAt={1.4 * window.innerHeight}   // Reverse animation when below 40% of viewport height
+                enterAt={3 * window.innerHeight}  // Items 1 and 2 enter at 90% of viewport height
+                exitAt={2.5 * window.innerHeight}   // Reverse animation when below 40% of viewport height
                 targets={".SItem-2"} // Target Item 1 and 2
                 animationProps={{
                     opacity: [0, 1],
@@ -154,10 +152,6 @@ const Cursor: React.FC = () => {
                 <div className="ShowcaseItem SItem-2 clickable">
                     <p>Portfolio</p>
                     <ThreeImageEffect imageUrl={PORTFOLIO} />
-                </div>
-                <div className="ShowcaseItem SItem-2 clickable">
-                    <p>TAG_4</p>
-                    <ThreeImageEffect imageUrl={img} />
                 </div>
                 <div className="ShowcaseTag">
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TEST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
