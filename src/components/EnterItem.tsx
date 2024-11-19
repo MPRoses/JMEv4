@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 // @ts-ignore
 import anime from "animejs";
 // @ts-ignore

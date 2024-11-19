@@ -8,6 +8,12 @@ import $ from 'jquery';
 // @ts-ignore
 import img from "./../img/img.png"
 // @ts-ignore
+import FWW from "./../img/FWW.png"
+// @ts-ignore
+import FURALL from "./../img/FURALL.png";
+// @ts-ignore
+import PORTFOLIO from "./../img/PORTFOLIO.png";
+// @ts-ignore
 import ScrollAnime from "./EnterItem.tsx";
 // @ts-ignore
 import anime from "animejs";
@@ -19,9 +25,7 @@ const Cursor: React.FC = () => {
         const tag = $(".ShowcaseTag");
 
         tag.addClass("active");
-        setTimeout(() => {
-            tag.html(`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`);
-        }, 100);
+        tag.html(`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`);
     };
 
 
@@ -38,9 +42,7 @@ const Cursor: React.FC = () => {
             const tag = $(".ShowcaseTag");
 
             tag.addClass("active");
-            setTimeout(() => {
-                tag.html(`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`);
-            }, 100);
+            tag.html(`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`);
         };
 
         const handleMouseLeave = () => {
@@ -75,13 +77,14 @@ const Cursor: React.FC = () => {
     return (
         <div>
             {/* ScrollAnime Wrapper */}
+
             <ScrollAnime
-                enterAt={0.9 * window.innerHeight}  // Items 1 and 2 enter at 90% of viewport height
-                exitAt={0.4 * window.innerHeight}   // Reverse animation when below 40% of viewport height
-                targets={".SItem-1"} // Target Item 1 and 2
+                enterAt={.9 * window.innerHeight}  // Items 1 and 2 enter at 90% of viewport height
+                exitAt={0.7 * window.innerHeight}   // Reverse animation when below 40% of viewport height
+                targets={".SItem-1, .title-container"} // Target Item 1 and 2
                 animationProps={{
                     opacity: [0, 1],
-                    translateY: ["150px", "0px"],
+                    translateY: ["50px", "0px"],
                     easing: "cubicBezier(.6,.31,.23,.98)",
                     filter: ["blur(10px)", "blur(0px)"],
                     duration: 1000,
@@ -89,7 +92,7 @@ const Cursor: React.FC = () => {
                 }}
                 reverseAnimationProps={{
                     opacity: [1, 0],
-                    translateY: ["0px", "150px"],
+                    translateY: ["0px", "50px"],
                     easing: "cubicBezier(.2,.81,.35,.98)",
                     filter: ["blur(0px)", "blur(10px)"],
                     duration: 500,
@@ -97,8 +100,29 @@ const Cursor: React.FC = () => {
             />
 
             <ScrollAnime
+                enterAt={.4 * window.innerHeight}  // Items 1 and 2 enter at 90% of viewport height
+                exitAt={.2 * window.innerHeight}   // Reverse animation when below 40% of viewport height
+                targets={".word, .FindOutHowCTA"} // Target Item 1 and 2
+                animationProps={{
+                    opacity: [0, 1],
+                    translateY: ["10px", "0px"],
+                    easing: "cubicBezier(.6,.31,.23,.98)",
+                    filter: ["blur(10px)", "blur(0px)"],
+                    duration: 250,
+                    delay: anime.stagger(75),
+                }}
+                reverseAnimationProps={{
+                    opacity: [1, 0],
+                    translateY: ["0px", "10px"],
+                    easing: "cubicBezier(.2,.81,.35,.98)",
+                    filter: ["blur(0px)", "blur(10px)"],
+                    duration: 100,
+                }}
+            />
+
+            <ScrollAnime
                 enterAt={1.6 * window.innerHeight}  // Items 1 and 2 enter at 90% of viewport height
-                exitAt={0.4 * window.innerHeight}   // Reverse animation when below 40% of viewport height
+                exitAt={1.4 * window.innerHeight}   // Reverse animation when below 40% of viewport height
                 targets={".SItem-2"} // Target Item 1 and 2
                 animationProps={{
                     opacity: [0, 1],
@@ -120,16 +144,16 @@ const Cursor: React.FC = () => {
             {/* Showcase Container with Items */}
             <div className="ShowcaseContainer">
                 <div className="ShowcaseItem SItem-1 clickable">
-                    <p>TAG_1</p>
-                    <ThreeImageEffect imageUrl={img} />
+                    <p>Furall</p>
+                    <ThreeImageEffect imageUrl={FURALL} />
                 </div>
                 <div className="ShowcaseItem SItem-1 clickable">
-                    <p>TAG_2</p>
-                    <ThreeImageEffect imageUrl={img} />
+                    <p>Franse Werkwoorden</p>
+                    <ThreeImageEffect imageUrl={FWW} />
                 </div>
                 <div className="ShowcaseItem SItem-2 clickable">
-                    <p>TAG_3</p>
-                    <ThreeImageEffect imageUrl={img} />
+                    <p>Portfolio</p>
+                    <ThreeImageEffect imageUrl={PORTFOLIO} />
                 </div>
                 <div className="ShowcaseItem SItem-2 clickable">
                     <p>TAG_4</p>

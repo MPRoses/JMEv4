@@ -65,6 +65,10 @@ const ThreeImageEffect: React.FC<ThreeImageEffectProps> = ({ imageUrl }) => {
 
             scene = new THREE.Scene();
 
+            const aspectRatio = texture.image.width / texture.image.height;
+            const planeWidth = 2 * aspectRatio; // Adjust width based on aspect ratio
+            const planeHeight = 2;
+
             const shaderUniforms = {
                 u_time: { type: "f", value: 1.0 },
                 u_mouse: { type: "v2", value: new THREE.Vector2() },
@@ -73,7 +77,7 @@ const ThreeImageEffect: React.FC<ThreeImageEffectProps> = ({ imageUrl }) => {
             };
 
             planeMesh = new THREE.Mesh(
-                new THREE.PlaneGeometry(2, 2),
+                new THREE.PlaneGeometry(planeWidth, planeHeight),
                 new THREE.ShaderMaterial({
                     uniforms: shaderUniforms,
                     vertexShader,
@@ -83,7 +87,9 @@ const ThreeImageEffect: React.FC<ThreeImageEffectProps> = ({ imageUrl }) => {
             scene.add(planeMesh);
 
             renderer = new THREE.WebGLRenderer({ alpha: true });
-            renderer.setSize(width, height);
+            renderer.setSize(width * window.devicePixelRatio, height * window.devicePixelRatio);
+            renderer.domElement.style.width = `${width}px`;
+            renderer.domElement.style.height = `${height}px`;
             containerRef.current!.appendChild(renderer.domElement);
 
             addMouseEvents();
@@ -150,8 +156,14 @@ const ThreeImageEffect: React.FC<ThreeImageEffectProps> = ({ imageUrl }) => {
         };
 
         const texture = new THREE.TextureLoader().load(imageRef.current!.src, () => {
+            // Ensure proper filtering for the texture
+            texture.minFilter = THREE.LinearFilter; // For smooth minification
+            texture.magFilter = THREE.LinearFilter; // For smooth magnification
+            texture.anisotropy = 16; // Set anisotropy for better quality at angles
+
             initializeScene(texture);
         });
+
 
         return () => {
             if (animationFrameId) cancelAnimationFrame(animationFrameId);
