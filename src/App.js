@@ -28,6 +28,18 @@ function App() {
                 transformElement(tapeRef.current, e.clientX, e.clientY);
                 transformElement(backgroundRef.current, e.clientX, e.clientY);
             }
+
+            // Move custom cursor and showcase tag
+            const customCursor = document.querySelector("#custom-cursor");
+            const showcaseTags = document.querySelectorAll(".ShowcaseTag");
+            if (customCursor) {
+                customCursor.style.left = `${e.clientX}px`;
+                customCursor.style.top = `${e.clientY}px`;
+            }
+            showcaseTags.forEach((tag) => {
+                tag.style.left = `${e.clientX}px`;
+                tag.style.top = `${e.clientY}px`;
+            });
         };
 
         const handleScroll = () => {
